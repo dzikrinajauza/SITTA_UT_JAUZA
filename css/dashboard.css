@@ -1,0 +1,374 @@
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+  background-color: #f8f9fd;
+}
+
+/* Tambahkan kode ini di bagian bawah CSS kamu */
+
+.gradient-background {
+  /* Menggunakan warna dari contohmu */
+  background: linear-gradient(300deg, #1e2772, #f97316, #555555, #c2c2c2);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
+  
+  /* Tambahan agar teks di dalamnya tetap rapi */
+  transition: color 0.5s ease;
+}
+
+/* Supaya teks h1 dan p lebih terlihat saat background gelap/berwarna */
+.hero-section.gradient-background h1, 
+.hero-section.gradient-background p {
+  color: white; /* Mengubah teks menjadi putih agar kontras */
+}
+
+.hero-section.gradient-background h1 span {
+  color: #f1f5f9; /* Warna aksen untuk nama (Rina Wulandari) */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+
+/* Styling tambahan untuk menandai halaman aktif */
+.nav-links .shipment-active {
+    padding-bottom: 5px;
+    color: #f97316 !important;
+    font-weight: 700;
+    border-bottom: 2px solid #f97316;
+}
+
+/* Penyesuaian greeting user agar rapi di navbar */
+.user-greeting {
+    font-size: 14px;
+    margin-right: 15px;
+    color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: white;
+}
+
+.logo-img {
+  height: 40px;
+  padding-right: 140px;
+}
+
+.nav-links .nav-item,
+.dropbtn {
+  text-decoration: none;
+  color: #a8a7a7; /* Warna abu-abu seperti di gambar untuk yang tidak aktif */
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links .teaching_Material_Info {
+  padding-bottom: 5px;
+  color: #f97316;
+  font-weight: 700;
+  border-bottom: 2px solid #f97316;
+}
+
+.dropbtn {
+  color: #a8a7a7;
+  transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: #e46904;
+  border-bottom: 2px solid #e46904;
+  font-weight: 700;
+}
+
+.login-link {
+  vertical-align: inherit;
+  color: black;
+  padding: 14px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-links a,
+.dropbtn {
+  text-decoration: none;
+  color: #a8a7a7;
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-get-started button{
+  background: #1e2772;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-get-started{
+  background: #1e2772;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown (Catatan 1) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  margin: 0;
+}
+.dropdown-content.show {
+  display: block;
+}
+
+/* Hero Section */
+.icon-plus{ 
+  font-size: 47px;
+  color: #1e2772;
+  margin-right: 20px;
+  font: bolder;
+}
+
+
+.hero-section {
+  text-align: center;
+  padding: 100px 60px 180px 60px;
+}
+.hero-section h1 {
+  font-size: 48px;
+  color: #0f172a;
+}
+.hero-section h1 span {
+  color: #f97316;
+}
+.hero-section p {
+  color: #64748b;
+  font-size: 18px;
+}
+.btn-hero-started button{
+  background: #1E2772;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  margin-top: 20px;
+}
+
+/* Form Styling (Catatan 3) */
+.stock-form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;    /* Garis pembatas tipis */
+    border-radius: 0 0 8px 8px;
+    padding: 20px;             /* Memberi jarak antara isi form dengan garis */
+    margin-bottom: 20px;
+    box-shadow: 0 15px 81px -59px #1E2772;
+}
+
+.form-container {
+  background: white;
+  padding: 60px;
+  margin: -50px auto 40px auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.form-header {
+  background: #F8FAFC;
+  padding: 1px 15px;
+  display: flex;
+  justify-content: left;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 15px 65px -25px #1E2772;
+  border: 1px solid #ddd;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.8fr;
+  gap: 40px;
+  padding: 25px;
+}
+
+.form-grid-0 {
+  display: grid;
+  grid-template-columns: 0.91fr 2.19fr 0.3fr;
+  gap: 40px;
+  padding: 25px;
+  margin-right: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+.btn-save {
+  background: #e46904;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+.btn-save i {
+    margin-right: 8px; /* Memberi jarak antara icon dan teks */
+}
+
+/* Table Styling */
+.table-container {
+    padding: 60px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.table-header {
+  background: #ecf0f3;;
+    padding: 1px 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: left;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 -4px 22px -22px #1E2772;
+    border: 1px solid #ddd;
+}
+
+.icon-folder {
+  font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    gap: 20px;
+    padding: 15px 0 15px 2px;
+    font-family: "Georgia", serif;
+    color: #1E2772;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stok_tabel {
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 66px -57px #1E2772;
+    border: 1px solid #ddd;
+}
+
+.elemen_stok_tabel{
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+th {
+  background: #1E2772;
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+}
+td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #64748b;
+  font-size: 14px;
+  background: #f1f5f9;
+}
+.cover-trigger {
+  cursor: pointer;
+  width: 24px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 350px;
+  background: white;
+  padding: 10px;
+}
+.modal-content img {
+  width: 100%;
+}
+.close-btn {
+  position: absolute;
+  right: -40px;
+  top: 0;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}

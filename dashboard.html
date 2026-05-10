@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - SITTA-UT</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+      <div class="logo-container">
+        <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+      </div>
+      <nav class="nav-links">
+        <a href="dashboard.html" class="teaching_Material_Info">
+          Teaching Material Info</a>
+        <a href="stok.html">Shipment Tracking</a>
+        <div class="dropdown">
+          <button class="dropbtn" id="reportsBtn">Reports ▼</button>
+          <div class="dropdown-content" id="reportsSubmenu">
+            <a href="#">Monitoring Progress DO Bahan Ajar</a>
+            <a href="#">Rekap Bahan Ajar</a>
+          </div>
+        </div>
+        <a href="#">Transaction History</a>
+      </nav>
+      <div class="nav-auth">
+        <a href="index.html" class="login-link">Log in</a>
+        <a href="index.html" class="btn-get-started">
+          <button>Sign in</button>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section gradient-background">
+        <h1>
+          <b>Welcome to <br/>the <span>SITTA-UT</span> Control Panel</b>
+        </h1>
+        <p>Manage data and monitor your system's progress in real-time.</p>
+        <p class="sub-text">
+          Quick access to all activity reports and system integrations in one
+          unified dashboard.
+        </p>
+        <a href="#form-stok" class="btn-hero-started" id="heroGetStarted">
+          <button>Get Started</button>
+        </a>
+      </section>
+
+      <!-- Form Tambah Stok (Catatan 3) -->
+      <section id="form-stok" class="form-container">
+        <div class="form-header">
+          <span class="icon-plus">+</span>
+          <h3>Add New Stock</h3>
+        </div>
+        <form id="addStockForm" class="stock-form">
+          <div class="form-grid-0">
+            <div class="input-group">
+              <label>Teaching Material Code</label>
+              <input
+                type="text"
+                id="kodeBahan"
+                placeholder="MSIM4403"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label>Teaching Material Name</label>
+              <input
+                type="text"
+                id="namaBahan"
+                placeholder="Data Mining"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label>Stock Quantity</label>
+              <input type="number" id="jumlahStok" placeholder="0" required />
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Shelf Location</label>
+              <input
+                type="text"
+                id="lokasiRak"
+                placeholder="Rak A-01"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label>Book Cover</label>
+              <input type="file" id="coverBuku" />
+            </div>
+            <div class="input-group btn-group">
+              <button type="submit" class="btn-save">
+                <i class="fa-solid fa-floppy-disk"></i> Save Data
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Tabel Daftar Stok (Catatan 2) -->
+      <section class="table-container">
+        <div class="table-header">
+          <button type="submit" class="icon-folder">
+            <i class="fa-solid fa-book"></i>Teaching Materials Stock List
+          </button>
+        </div>
+        <div class="stok_tabel">
+          <table id="stockTable">
+            <thead>
+              <tr>
+                <th>TEACHING MATERIAL CODE</th>
+                <th>TEACHING MATERIAL NAME</th>
+                <th>STOCK QUANTITY</th>
+                <th>SHELF LOCATION</th>
+                <th>BOOK COVER</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Contoh Data Statis Sesuai Gambar -->
+              <tr>
+                <td>EKMA4310</td>
+                <td>KEPEMIMPINAN</td>
+                <td>278</td>
+                <td>0SBY02</td>
+                <td>
+                  <img
+                    src="assets/kepemimpinan.jpg"
+                    class="cover-trigger"
+                    data-cover="assets/kepemimpinan.jpg"
+                    alt="cover"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>EKMA4213</td>
+                <td>MANAJEMEN KEUANGAN</td>
+                <td>392</td>
+                <td>0JKT01</td>
+                <td>
+                  <img
+                    src="assets/manajemen_keuangan.jpg"
+                    class="cover-trigger"
+                    data-cover="assets/manajemen_keuangan.jpg"
+                    alt="cover"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>BIOL4211</td>
+                <td>MIKROBIOLOGI DASAR</td>
+                <td>165</td>
+                <td>0MLG01</td>
+                <td>
+                  <img
+                    src="assets/mikrobiologi.jpg"
+                    class="cover-trigger"
+                    data-cover="assets/mikrobiologi.jpg"
+                    alt="cover"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>PAUD4401</td>
+                <td>
+                  PERKEMBANGAN DAN KONSEP DASAR PENGEMBANGAN ANAK USIA DINI
+                </td>
+                <td>204</td>
+                <td>0UPBJJBDG</td>
+                <td>
+                  <img
+                    src="assets/paud_perkembangan.jpeg"
+                    class="cover-trigger"
+                    data-cover="assets/paud_perkembangan.jpeg"
+                    alt="cover"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>ASIP4301</td>
+                <td>PENGANTAR ILMU KOMUNIKASI</td>
+                <td>548</td>
+                <td>0TMP01</td>
+                <td>
+                  <img
+                    src="assets/pengantar_komunikasi.jpg"
+                    class="cover-trigger"
+                    data-cover="assets/pengantar_komunikasi.jpg"
+                    alt="cover"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Preview Cover (Catatan 2) -->
+    <div id="coverModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="previewImg" src="" alt="Cover Preview" />
+      </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

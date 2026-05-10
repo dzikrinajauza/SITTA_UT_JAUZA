@@ -1,0 +1,288 @@
+:root {
+  --ut-orange: #f37021;
+  --ut-blue: #1d2a61;
+  --bg-light: #f8f9fc;
+  --success-green: #66cc66;
+  --text-muted: #888;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  margin: 0;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+  height: 40px;
+}
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  color: #666;
+  font-size: 14px;
+}
+nav a.active {
+  color: var(--ut-blue);
+  font-weight: bold;
+  border-bottom: 2px solid var(--ut-blue);
+}
+.get-started-btn {
+  background: var(--ut-blue);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+/* Cards */
+.results-container {
+  padding: 20px 0;
+  background: #f8f9fc;
+}
+.hidden {
+  display: none;
+}
+
+.info-card {
+  background: #ffffff;
+  padding: 20px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 60px;
+  border-radius: 52px;
+}
+.do-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+/* Kontainer Utama */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.search-card-wrapper {
+  position: relative; /* Menjadi acuan untuk posisi konten di atasnya */
+  width: fit-content;
+  display: inline-block;
+  filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.bg-frame {
+  display: block;
+  width: 650px; /* Sesuaikan ukuran frame agar pas */
+  height: auto;
+}
+
+/* Mengatur posisi teks dan input agar melayang di tengah kiri frame */
+.search-overlay-content {
+  position: absolute;
+  top: 17%; /* Mengatur posisi vertikal */
+  left: 10%; /* Mengatur posisi horizontal agar di sisi kiri frame */
+  z-index: 2;
+}
+
+.search-overlay-content h2 {
+  font-family: "Georgia", serif;
+  color: #1d2a61;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 34px;
+}
+
+/* Styling Box Input agar mirip gambar 2 */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7); /* Transparan putih */
+  backdrop-filter: blur(5px); /* Efek blur di belakang input */
+  border-radius: 12px;
+  padding: 5px 15px;
+  width: 280px;
+  border: 1px solid #ddd;
+}
+
+.search-box input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-box button {
+  border: none;
+  background: none;
+  color: #1d2a61;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Progress Bar */
+.progress-card {
+  background: #ffffff;
+  padding: 20px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 60px;
+  border-radius: 52px;
+}
+
+.progress-container {
+  position: relative;
+  margin-top: 40px;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 6px;
+  background: #ddd;
+  width: 100%;
+  z-index: 1;
+}
+
+#progress-bar-width {
+  background: var(--success-green);
+  width: 65%; /* Dinamis */
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.step {
+  text-align: center;
+  color: var(--text-muted);
+}
+.step.active {
+  color: black;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.step.active .circle {
+  background: var(--success-green);
+  color: white;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  position: relative;
+}
+
+.timeline-card {
+  background: #ffffff;
+  padding: 20px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 60px;
+  border-radius: 52px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--success-green);
+}
+
+.timeline-item {
+  margin-bottom: 25px;
+  padding-left: 45px;
+  position: relative;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--success-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+}
+
+/* Details Grid */
+.details-card {
+  background: #ffffff;
+  padding: 20px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 60px;
+  border-radius: 52px;
+  padding-bottom: 31px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--ut-orange);
+  padding: 20px;
+  border-radius: 30px;
+  color: white;
+}
+
+.detail-item label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+}
+.detail-item p {
+  font-weight: bold;
+  margin: 0;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Badge */
+.badge {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+}

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lacak Pengiriman - Universitas Terbuka</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/stok.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  </head>
+  <body>
+    <!-- Header / Navbar (Disamakan dengan Dashboard) -->
+    <header class="navbar">
+      <div class="logo-container">
+        <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+      </div>
+      <nav class="nav-links">
+        <a href="dashboard.html">Teaching Material Info</a>
+        <!-- Tambahkan class active manual atau sesuaikan CSS -->
+        <a href="stok.html" class="shipment-active">Shipment Tracking</a>
+        <div class="dropdown">
+          <button class="dropbtn" id="reportsBtn">Reports ▼</button>
+          <div class="dropdown-content" id="reportsSubmenu">
+            <a href="#">Monitoring Progress DO Bahan Ajar</a>
+            <a href="#">Rekap Bahan Ajar</a>
+          </div>
+        </div>
+        <a href="#">Transaction History</a>
+      </nav>
+      <div class="nav-auth">
+        <span class="user-greeting">Hello, <b>Rina Wulandari</b></span>
+        <a href="index.html" class="btn-get-started">
+          <button>Logout</button>
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Search Section -->
+      <section class="search-container">
+        <div class="search-card-wrapper">
+          <img src="assets/Frame .svg" alt="Background" class="bg-frame" />
+
+          <!-- Konten yang menumpuk di atas gambar -->
+          <div class="search-overlay-content">
+            <h2>Track Delivery Status</h2>
+            <div class="search-box">
+              <input type="text" id="inputDO" placeholder="2023005678" />
+              <button onclick="lacakPengiriman()">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="results-container">
+        <!-- Hasil Lacak Pengiriman akan ditampilkan di sini -->
+        <div id="trackingResult" class="hidden">
+          <!-- Header Info -->
+          <section class="info-card">
+            <div class="do-header">
+              <h1 id="res-do-number">DO Number 2023001234</h1>
+              <span class="badge" id="res-status-badge">Shipped</span>
+            </div>
+            <p id="res-placed-date">Placed on August 25, 2025</p>
+          </section>
+
+          <!-- Delivery Progress Bar -->
+          <section class="progress-card">
+            <h3>Delivery Progress</h3>
+            <p class="est-delivery" id="res-est-delivery">
+              Estimated delivery: 2025-08-25
+            </p>
+            <div class="progress-container">
+              <div class="progress-bar" id="progress-bar-width"></div>
+              <div class="steps">
+                <div class="step active" id="step-ordered">
+                  <div class="circle"><i class="fas fa-check"></i></div>
+                  <div><b>Ordered</b></div>
+                  <small>August 25</small>
+                </div>
+                <div class="step active" id="step-confirmed">
+                  <div class="circle"><i class="fas fa-check"></i></div>
+                  <div><b>Confirmed</b></div>
+                  <small>August 25</small>
+                </div>
+                <div class="step" id="step-shipped">
+                  <div class="circle"><i class="fas fa-check"></i></div>
+                  <div><b>Shipped</b></div>
+                  <small>August 25</small>
+                </div>
+                <div class="step" id="step-delivered">
+                  <div class="circle" id="icon-delivered">
+                    <i class="fas fa-box"></i>
+                  </div>
+                  <div><b>Delivered</b></div>
+                  <small>August 25</small>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Order Timeline -->
+          <section class="timeline-card">
+            <h3>Order Timeline</h3>
+            <ul class="timeline" id="res-timeline">
+              <!-- Data diisi via JS -->
+            </ul>
+          </section>
+
+          <!-- Tracking Information Table -->
+          <section class="details-card">
+            <h3>Tracking Information</h3>
+            <div class="details-grid">
+              <div class="detail-item">
+                <label>Recipient</label>
+                <p id="res-penerima">-</p>
+              </div>
+              <div class="detail-item">
+                <label>Shipment Date</label>
+                <p id="res-tgl-kirim">-</p>
+              </div>
+              <div class="detail-item">
+                <label>Shipping Provider</label>
+                <p id="res-ekspedisi">-</p>
+              </div>
+              <div class="detail-item">
+                <label>Tracking ID</label>
+                <p id="res-kode-paket">-</p>
+              </div>
+              <div class="detail-item">
+                <label>Total Cost</label>
+                <p id="res-total">-</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/stok.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
