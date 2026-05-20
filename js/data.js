@@ -80,7 +80,7 @@ var dataBahanAjar = [
   },
   {
     kodeLokasi: "0UPBJJBDG",
-    kodeBarang: "PAUD4401",
+    kodeBarang: "PAUD4402",
     namaBarang: "Perkembangan Anak Usia Dini",
     jenisBarang: "BMP",
     edisi: "4",
