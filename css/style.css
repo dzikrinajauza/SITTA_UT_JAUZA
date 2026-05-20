@@ -13,6 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  min-width: 450px;
 }
 
 /* --- KONTEN UTAMA (PUTIH) --- */
@@ -24,6 +25,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   overflow: hidden;
+  min-width: 450px;
 }
 
 /* --- BAGIAN KIRI (FORM) --- */
@@ -203,14 +205,14 @@ body {
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .main-container {
-    flex-direction: column-reverse;
+    max-width: 550px;
+    margin: 0 auto;
   }
   .login-section {
-    padding: 40px 20px;
+    flex: 1;
+    padding: 60px 40px;
   }
   .illustration-section {
-    padding: 20px;
-    border-left: none;
-    border-bottom: 1px solid #f1f3f4;
+  display: none;
   }
 }

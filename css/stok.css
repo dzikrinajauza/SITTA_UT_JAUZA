@@ -66,6 +66,7 @@ nav a.active {
   align-items: center;
   margin-bottom: 15px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* Kontainer Utama */
@@ -285,4 +286,12 @@ nav a.active {
   padding: 5px 15px;
   border-radius: 20px;
   font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .info-card, .progress-card, .timeline-card, .details-card {
+    margin: 10px 15px; /* Mengurangi margin kiri-kanan dari 60px menjadi 15px di HP */
+    padding: 20px;      /* Menyesuaikan padding internal */
+    border-radius: 20px; /* Menyesuaikan kebulatan border agar proporsional */
+  }
 }
