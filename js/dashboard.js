@@ -5,22 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const namaUser = localStorage.getItem('namaUser');
 
     if (isLoggedIn === 'true' && namaUser) {
-        // 1. Ubah Header: Ganti "Log in / Sign in" menjadi Nama User & Logout
+        // a. Ubah Header: Ganti "Log in / Sign in" menjadi Nama User & Logout
         const navAuth = document.querySelector('.nav-auth');
         if (navAuth) {
             navAuth.innerHTML = `
-                <span style="margin-right: 15px; font-size: 14px;"><b>${namaUser}</b></span>
-                <button class="btn-get-started" id="logoutBtn" style="background: #1e2772; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">Logout</button>
+                <span style="margin-right: 15px; font-size: 16px; color: #1e2772;"><b>${namaUser}</b></span>
+                <button class="btn-get-started" id="logoutBtn" style="background: #1e2772; font-size: 16px; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">Logout</button>
             `;
         }
 
-        // 2. Ubah Hero Section: Tampilkan nama di Welcome Message sesuai desain baru
+        // b. Ubah Hero Section: Tampilkan nama di Welcome Message sesuai desain baru
         const heroTitle = document.querySelector('.hero-section h1');
         if (heroTitle) {
             heroTitle.innerHTML = `Hello, welcome back <br> <span>${namaUser}</span>`;
         }
 
-        // 3. Logika Tombol Logout
+        // c. Logika Tombol Logout
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', () => {
@@ -51,33 +51,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-
-    // --- LOGIKA SISTEM TAB NAVIGASI ---
-const navTabs = document.querySelectorAll('.nav-tab');
-const cardContainers = document.querySelectorAll('.cards-container');
-
-navTabs.forEach(tab => {
-    tab.addEventListener('click', function(e) {
-        e.preventDefault(); // Mencegah halaman melompat atau reload saat diklik
-
-        // 1. Hapus class 'active' (garis bawah oranye) dari semua menu navigasi
-        navTabs.forEach(t => t.classList.remove('active'));
-        
-        // 2. Tambahkan class 'active' hanya ke menu yang baru saja diklik
-        this.classList.add('active');
-
-        // 3. Sembunyikan SEMUA kontainer kartu
-        cardContainers.forEach(container => container.classList.add('hidden-tab'));
-        
-        // 4. Cari tahu kontainer mana yang harus dibuka berdasarkan atribut data-target
-        const targetId = this.getAttribute('data-target');
-        
-        // 5. Munculkan kontainer target dengan menghapus class hidden-tab
-        const targetContainer = document.getElementById(targetId);
-        if (targetContainer) {
-            targetContainer.classList.remove('hidden-tab');
-        }
+     // --- LOGIKA SISTEM TAB NAVIGASI ---
+    const navTabs = document.querySelectorAll('.nav-tab');
+    const cardContainers = document.querySelectorAll('.cards-container');
+    
+    navTabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault(); // Mencegah halaman melompat atau reload saat diklik
+    
+            // 1. Hapus class 'active' (garis bawah oranye) dari semua menu navigasi
+            navTabs.forEach(t => t.classList.remove('active'));
+            
+            // 2. Tambahkan class 'active' hanya ke menu yang baru saja diklik
+            this.classList.add('active');
+    
+            // 3. Sembunyikan SEMUA kontainer kartu
+            cardContainers.forEach(container => container.classList.add('hidden-tab'));
+            
+            // 4. Cari tahu kontainer mana yang harus dibuka berdasarkan atribut data-target
+            const targetId = this.getAttribute('data-target');
+            
+            // 5. Munculkan kontainer target dengan menghapus class hidden-tab
+            const targetContainer = document.getElementById(targetId);
+            if (targetContainer) {
+                targetContainer.classList.remove('hidden-tab');
+            }
+        });
     });
-});
-
+ 
 });

@@ -3,32 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lacak Pengiriman - Universitas Terbuka</title>
+    <title>Shipment Tracking - Universitas Terbuka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css" />
-    <link rel="stylesheet" href="css/stok.css" />
+    <link rel="stylesheet" href="css/shipmentTrack.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   </head>
   <body>
-    <!-- Header / Navbar (Disamakan dengan Dashboard) -->
+    <!-- HEADER -->
     <header class="navbar">
+      <!-- Logo -->
       <div class="logo-container">
-        <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+        <a href="dashboard.html">
+          <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+        </a>
       </div>
-      <nav class="nav-links">
-        <a href="dashboard.html">Teaching Material Info</a>
-        <!-- Tambahkan class active manual atau sesuaikan CSS -->
-        <a href="stok.html" class="shipment-active">Shipment Tracking</a>
-        <div class="dropdown">
-          <button class="dropbtn" id="reportsBtn">Reports ▼</button>
-          <div class="dropdown-content" id="reportsSubmenu">
-            <a href="#">Monitoring Progress DO Bahan Ajar</a>
-            <a href="#">Rekap Bahan Ajar</a>
-          </div>
-        </div>
-        <a href="#">Transaction History</a>
-      </nav>
+      <!-- Login/Logout -->
       <div class="nav-auth">
         <span class="user-greeting">Hello, <b>Rina Wulandari</b></span>
         <a href="index.html" class="btn-get-started">
@@ -37,6 +31,7 @@
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="container">
       <!-- Search Section -->
       <section class="search-container">
@@ -71,9 +66,7 @@
           <!-- Delivery Progress Bar -->
           <section class="progress-card">
             <h3>Delivery Progress</h3>
-            <p class="est-delivery" id="res-est-delivery">
-              Estimated delivery: 2025-08-25
-            </p>
+            <p class="est-delivery" id="res-est-delivery">Estimated delivery: 2025-08-25</p>
             <div class="progress-container">
               <div class="progress-bar" id="progress-bar-width"></div>
               <div class="steps">
@@ -94,7 +87,7 @@
                 </div>
                 <div class="step" id="step-delivered">
                   <div class="circle" id="icon-delivered">
-                    <i class="fas fa-box"></i>
+                     <i class="fas fa-box"></i>
                   </div>
                   <div><b>Delivered</b></div>
                   <small>August 25</small>
@@ -142,7 +135,7 @@
     </main>
 
     <script src="js/data.js"></script>
-    <script src="js/stok.js"></script>
+    <script src="js/shipmentTrack.js"></script>
     <script src="js/dashboard.js"></script>
   </body>
 </html>

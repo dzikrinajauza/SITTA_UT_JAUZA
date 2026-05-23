@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Stock - Universitas Terbuka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/addNewStock.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <!---HEADER---NAVIGASI 1--->
+    <header class="navbar">
+      <!-- Logo -->
+      <div class="logo-container">
+        <a href="dashboard.html">
+          <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+        </a>
+      </div>
+      <!-- Login/Logout -->
+      <div class="nav-auth">
+        <a href="index.html" class="login-link">Log in</a>
+        <a href="index.html" class="btn-get-started">
+          <button>Sign in</button>
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+     <main class="container">
+      <div class="page-title">
+        <h2>Add Teaching Materials Inventory</h2>
+      </div>
+
+      <section class="form-card">
+        <div class="form-header">
+          <div class="icon-plus">
+            <i class="fas fa-plus">+</i>
+          </div>
+          <h3>Add New Stock</h3>
+        </div>
+
+        <form class="add-stock-form" action="#" id="addStockForm">
+          
+          <div class="input-grid">
+            <div class="form-group code-group">
+              <label for="code">Code</label>
+              <input type="text" id="code" placeholder="MSIM4403" />
+            </div>
+            
+            <div class="form-group name-group">
+              <label for="materialName">Teaching Material Name</label>
+              <input type="text" id="materialName" placeholder="Data Mining" />
+            </div>
+            
+            <div class="form-group category-group">
+              <label for="category">Category</label>
+              <input type="text" id="category" placeholder="Praktikum" /> 
+            </div>
+            
+            <div class="form-group qty-group">
+              <label for="quantity">Quantity</label>
+              <input type="number" id="quantity" placeholder="0" />
+            </div>
+
+            <div class="form-group shelf-group">
+              <label for="shelf">Shelf Location</label>
+              <input type="text" id="shelf" placeholder="0" />
+            </div>
+            
+            <div class="form-group region-group">
+              <label for="region">Regional UT</label>
+              <input type="text" id="region" placeholder="Surabaya" />
+            </div>
+            
+            <div class="form-group price-group">
+              <label for="price">Price</label>
+              <input type="number" id="price" placeholder="80000" />
+            </div>
+            
+            <div class="form-group safety-group">
+              <label for="safety">Safety</label>
+              <input type="number" id="safety" placeholder="0" />
+            </div>
+            
+            <div class="form-group notes-group">
+              <label for="notes">Notes</label>
+              <input type="text" id="notes" placeholder="0" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save-data">
+              <i class="far fa-save"></i> Save Data
+            </button>
+          </div>
+
+        </form>
+      </section>
+     </main>
+  
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

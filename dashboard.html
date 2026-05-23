@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="css/dashboard.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   </head>
+
   <body>
-    <!-- Header / Navigation 1 -->
+    <!---HEADER---NAVIGASI 1--->
     <header class="navbar">
+      <!-- Logo -->
       <div class="logo-container">
         <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
       </div>
+      <!-- Login/Logout -->
       <div class="nav-auth">
         <a href="index.html" class="login-link">Log in</a>
         <a href="index.html" class="btn-get-started">
@@ -28,8 +29,9 @@
       </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="main-content">
-      <!-- Hero Section -->
+      <!-- HERO SECTION -->
       <section class="hero-section gradient-background">
         <h1>
           <b>Welcome to <br/>the <span>SITTA-UT</span> Control Panel</b>
@@ -38,7 +40,7 @@
         <p style="font-size: 20px;">Quick access to all activity reports...</p>
       </section>
 
-      <!-- Navigation 2 -->
+      <!-- NAVIGATION 2 -->
       <nav class="dashboard-sub-nav">
         <a href="#" class="nav-tab active" data-target="cards-teaching">Teaching Material Info</a>
         <a href="#" class="nav-tab" data-target="cards-tracking">Tracking Delivery Info</a>
@@ -50,33 +52,41 @@
             <a href="#">Rekap Bahan Ajar</a>
           </div>
         </div>
+
         <a href="#">Transaction History</a>
       </nav>
 
+      <!-- CARDS CONTAINER -->
       <section id="cards-teaching" class="cards-container">
+        <!-- Card Teaching Material Stock List -->
         <a href="#" class="card card-purple">
           <div class="card-content">
             <img src="assets/Taeching_Material_Stock_List.svg" alt="Stock List Illustration" class="card-img" />
             <h3>Teaching Material Stock List</h3>
           </div>
         </a>
-        <a href="#" class="card card-orange">
+        <!-- Card Add New Stock -->
+        <a href="addNewStock.html" class="card card-orange">
           <div class="card-content">
             <img src="assets/Add_New_Stock.svg" alt="Add Stock Illustration" class="card-img" />
             <h3>Add New Stock</h3>
           </div>
         </a>
+        <!-- Card NULL -->
         <div class="card card-gray-small"></div>
         <div class="card card-gray-large"></div>
       </section>
 
+      <!---CARDS CONTAINER--HIDDEN--->
       <section id="cards-tracking" class="cards-container hidden-tab">
-        <a href="#" class="card card-purple" >
+        <!-- Card Shipment Tracking -->
+        <a href="shipmentTrack.html" class="card card-purple" >
           <div class="card-content">
             <img src="assets/shipmentTracking.svg" alt="Shipment Tracking Illustration" class="card-img" />
             <h3>Shipment Tracking</h3>
           </div>
         </a>
+        <!-- Card Add Tracking Delivery Order -->
         <a href="#" class="card card-orange" >
           <div class="card-content">
             <img src="assets/DeliveryOrder.svg" alt="Add Delivery Order Illustration" class="card-img" />
@@ -86,7 +96,7 @@
         <div class="card card-gray-small"></div>
         <div class="card card-gray-large"></div>
       </section>
-      
+
       <section id="form-section" class="form-container"></section>
       <section id="table-section" class="table-container"></section>
     <script src="js/dashboard.js"></script>

@@ -35,15 +35,16 @@ body {
   }
 }
 
-/* NAVIGASI 1 */
+/* HEADER / NAVIGATION 1 */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: #F0F2F5;
   padding: 15px 5%;
   flex-wrap: wrap;
   gap: 15px;
+  box-shadow: 0 2px 5px rgb(210 210 210 / 65%);
 }
 
 .logo-img {
@@ -58,10 +59,9 @@ body {
   flex-wrap: nowrap;
 }
 
-
 .login-link {
   vertical-align: inherit;
-  color: black;
+  color: #1e2772;
   padding: 14px 20px;
   text-align: center;
   text-decoration: none;
@@ -77,7 +77,7 @@ body {
   cursor: pointer;
 }
 
-/* NAVIGASI 2 */
+/* NAVIGATION 2 */
 .dashboard-sub-nav {
   display: flex;
   justify-content: flex-start;
@@ -109,8 +109,8 @@ body {
 }
 
 .user-greeting {
-  font-size: 14px;
-  color: #333;
+  font-size: 15px;
+  color: #1e2772;
   white-space: nowrap;
 }
 
@@ -240,7 +240,7 @@ body {
   }
 }
 
-/* Class khusus untuk menyembunyikan kontainer Tab secara instan */
+/* Class untuk menyembunyikan kontainer Tab secara instan */
 .hidden-tab {
   display: none !important;
 }

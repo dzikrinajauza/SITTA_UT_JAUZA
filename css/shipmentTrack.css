@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inria Serif", serif;
   background-color: white;
   margin: 0;
   color: #333;
@@ -19,8 +19,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background: #F0F2F5;
+  box-shadow: 0 2px 5px rgb(210 210 210 / 65%);
 }
 
 .logo img {
@@ -46,8 +46,8 @@ nav a.active {
 
 /* Cards */
 .results-container {
-  padding: 20px 0;
-  background: #f8f9fc;
+  padding: 50px;
+  background: white;
 }
 .hidden {
   display: none;
@@ -74,7 +74,7 @@ nav a.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 80px 0;
 }
 
 .search-card-wrapper {
@@ -93,18 +93,19 @@ nav a.active {
 /* Mengatur posisi teks dan input agar melayang di tengah kiri frame */
 .search-overlay-content {
   position: absolute;
-  top: 17%; /* Mengatur posisi vertikal */
-  left: 10%; /* Mengatur posisi horizontal agar di sisi kiri frame */
+  top: 5%; /* Mengatur posisi vertikal */
+  left: 13%; /* Mengatur posisi horizontal agar di sisi kiri frame */
   z-index: 2;
 }
 
 .search-overlay-content h2 {
-  font-family: "Georgia", serif;
+  font-family: "Inknut Antiqua", serif;
   color: #1d2a61;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  padding-left: 34px;
+  padding-left: 16px;
+  padding-bottom: 5px;
 }
 
 /* Styling Box Input agar mirip gambar 2 */
