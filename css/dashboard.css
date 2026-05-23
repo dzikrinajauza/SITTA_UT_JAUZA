@@ -35,9 +35,6 @@ body {
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
 /* NAVIGASI 1 */
 .navbar {
   display: flex;
@@ -241,4 +238,9 @@ html {
     flex-wrap: wrap;
     gap: 15px;
   }
+}
+
+/* Class khusus untuk menyembunyikan kontainer Tab secara instan */
+.hidden-tab {
+  display: none !important;
 }

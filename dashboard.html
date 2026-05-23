@@ -40,8 +40,9 @@
 
       <!-- Navigation 2 -->
       <nav class="dashboard-sub-nav">
-        <a href="dashboard.html" class="active">Teaching Material Info</a>
-        <a href="dashboard2.html" class="delivery-link">Tracking Delivery Info</a>
+        <a href="#" class="nav-tab active" data-target="cards-teaching">Teaching Material Info</a>
+        <a href="#" class="nav-tab" data-target="cards-tracking">Tracking Delivery Info</a>
+        
         <div class="dropdown">
           <button class="dropbtn" id="reportsBtn">Reports ▼</button>
           <div class="dropdown-content" id="reportsSubmenu">
@@ -52,8 +53,7 @@
         <a href="#">Transaction History</a>
       </nav>
 
-      <!-- Cards Container -->>
-      <section class="cards-container">
+      <section id="cards-teaching" class="cards-container">
         <a href="#" class="card card-purple">
           <div class="card-content">
             <img src="assets/Taeching_Material_Stock_List.svg" alt="Stock List Illustration" class="card-img" />
@@ -69,6 +69,24 @@
         <div class="card card-gray-small"></div>
         <div class="card card-gray-large"></div>
       </section>
+
+      <section id="cards-tracking" class="cards-container hidden-tab">
+        <a href="#" class="card card-purple" >
+          <div class="card-content">
+            <img src="assets/shipmentTracking.svg" alt="Shipment Tracking Illustration" class="card-img" />
+            <h3>Shipment Tracking</h3>
+          </div>
+        </a>
+        <a href="#" class="card card-orange" >
+          <div class="card-content">
+            <img src="assets/DeliveryOrder.svg" alt="Add Delivery Order Illustration" class="card-img" />
+            <h3>Add Tracking Delivery Order</h3>
+          </div>
+        </a>
+        <div class="card card-gray-small"></div>
+        <div class="card card-gray-large"></div>
+      </section>
+      
       <section id="form-section" class="form-container"></section>
       <section id="table-section" class="table-container"></section>
     <script src="js/dashboard.js"></script>
