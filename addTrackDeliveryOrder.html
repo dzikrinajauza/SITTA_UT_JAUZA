@@ -11,31 +11,131 @@
     <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 <body>
-  <!---HEADER---NAVIGASI 1--->
-    <header class="navbar">
-      <!-- Logo -->
-      <div class="logo-container">
-        <a href="dashboard.html">
-          <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
-        </a>
-      </div>
-      <!-- Login/Logout -->
-      <div class="nav-auth">
-        <a href="index.html" class="login-link">Log in</a>
-        <a href="index.html" class="btn-get-started">
-          <button>Sign in</button>
-        </a>
-      </div>
-    </header>
+  <body>
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="dashboard.html">
+        <img src="assets/logo.svg" alt="SITTA-UT Logo" class="logo-img" />
+      </a>
+    </div>
+    <div class="nav-auth">
+      <a href="index.html" class="login-link">Log in</a>
+      <a href="index.html" class="btn-get-started">
+        <button>Sign in</button>
+      </a>
+    </div>
+  </header>
 
-    <!-- MAIN CONTENT -->
+  <div id="app">
     <main>
       <div class="page-title">
         <h2>Add Tracking Delivery Order</h2>
       </div>
     </main>
-    
-    <script src="js/dataBahanAjar.js"></script>
-    <script src="js/dashboard.js"></script>
+
+    <section class="tracking-container">
+      <div class="container-header">
+        <i class="fa-solid fa-circle-plus"></i> Add Tracking Delivery Order
+      </div>
+      
+      <form class="tracking-form" @submit.prevent="simpanTrackingBaru">
+        <div class="form-grid-2">
+          
+          <div class="input-group">
+            <label>Delivery Order Number</label>
+            <input type="text" v-model="formTracking.nomorDO" placeholder="DO2025-0001" required />
+          </div>
+          
+          <div class="input-group">
+            <label>Expedition</label>
+            <select v-model="formTracking.ekspedisi" required style="width: 100%; padding: 12px 15px; background-color: #e2e2e2; border: none; border-radius: 8px; font-family: 'Georgia', serif; font-size: 14px;">
+              <option disabled value="">Pilih Ekspedisi</option>
+              <option v-for="eks in pengirimanList" :key="eks.kode" :value="eks.nama">{{ eks.nama }}</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>NIM</label>
+            <input type="text" v-model="formTracking.nim" placeholder="Masukkan NIM" required />
+          </div>
+          
+          <div class="input-group">
+            <label>Teaching Material Package</label>
+            <select v-model="formTracking.paket" required style="width: 100%; padding: 12px 15px; background-color: #e2e2e2; border: none; border-radius: 8px; font-family: 'Georgia', serif; font-size: 14px;">
+              <option disabled value="">Pilih Paket</option>
+              <option v-for="pkt in paket" :key="pkt.kode" :value="pkt.kode">{{ pkt.kode }} - {{ pkt.nama }}</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>Student Name</label>
+            <input type="text" v-model="formTracking.nama" placeholder="Full Name" required />
+          </div>
+          
+          <div class="input-group">
+            <label>Shipment Date</label>
+            <input type="date" v-model="formTracking.tanggalKirim" class="bg-gray" required style="width: 100%; padding: 12px 15px; background-color: #e2e2e2; border: none; border-radius: 8px; font-family: 'Georgia', serif; font-size: 14px;" />
+          </div>
+        </div>
+
+        <div class="detail-paket-box" v-if="detailPaketPilihan">
+          <h4 class="detail-title">Detail Isi Paket ({{ detailPaketPilihan.nama }})</h4>
+          <ul class="paket-list">
+            <li v-for="(isi, index) in detailPaketPilihan.isi" :key="index">{{ index + 1 }}. {{ isi }}</li>
+          </ul>
+          <hr class="divider" />
+          <div class="total-harga">
+            <span class="total-label">Total Harga</span>
+            <span class="total-amount">Rp {{ detailPaketPilihan.harga.toLocaleString('id-ID') }}</span>
+          </div>
+        </div>
+
+        <div class="btn-center">
+          <button type="submit" class="btn-save-orange">
+            <i class="fa-regular fa-floppy-disk"></i> Save Data
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tracking-container">
+      <div class="container-header">
+        <i class="fa-regular fa-folder-open"></i>DO Tracking List
+      </div>
+      
+      <div class="table-wrapper">
+        <table class="tracking-table">
+          <thead>
+            <tr>
+              <th>No DO</th>
+              <th>NIM</th>
+              <th>Student Name</th>
+              <th>Expedition</th>
+              <th>Package</th>
+              <th>Shipment Date</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, key) in tracking" :key="key">
+              <td>{{ key }}</td>
+              <td>{{ item.nim }}</td>
+              <td>{{ item.nama }}</td>
+              <td>{{ item.ekspedisi }}</td>
+              <td>{{ item.paket }}</td>
+              <td>{{ item.tanggalKirim }}</td>
+              <td>Rp {{ item.total.toLocaleString('id-ID') }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script src="js/dataBahanAjar.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
 </body>
 </html>

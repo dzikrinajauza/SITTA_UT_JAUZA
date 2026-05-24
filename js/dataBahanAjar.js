@@ -27,7 +27,7 @@ var app = new Vue({
     
     tracking: {
       "DO2025-0001": {
-        nim: "123456789", nama: "Rina Wulandari", status: "Dalam Perjalanan", ekspedisi: "JNE", tanggalKirim: "2025-08-25", paket: "PAKET-UT-001", total: 120000,
+        nim: "123456789", nama: "Rina Wulandari", status: "Dalam Perjalanan", ekspedisi: "Reguler (3-5 hari)", tanggalKirim: "2025-08-25", paket: "PAKET-UT-001", total: 120000,
         perjalanan: [
           { waktu: "2025-08-25 10:12:20", keterangan: "Penerimaan di Loket: TANGSEL" },
           { waktu: "2025-08-25 14:07:56", keterangan: "Tiba di Hub: JAKSEL" },
@@ -55,10 +55,25 @@ var app = new Vue({
       kode: "", judul: "", kategori: "", upbjj: "", lokasiRak: "",
       harga: null, qty: null, safety: null, catatanHTML: ""
     },
+    // Variabel penampung inputan form add tracking
+    formTracking: {
+      nomorDO: "",
+      ekspedisi: "",
+      nim: "",
+      paket: "",
+      nama: "",
+      tanggalKirim: ""
+    },
   },
 
   // FITUR BARU: COMPUTED UNTUK LOGIKA FILTER REAL-TIME
   computed: {
+    // Logika untuk menampilkan detail paket otomatis
+    detailPaketPilihan() {
+      if (!this.formTracking.paket) return null;
+      return this.paket.find(p => p.kode === this.formTracking.paket);
+    },
+
     filteredStok() {
       // 1. Copy array agar data asli tidak rusak saat difilter
       let result = [...this.stok];
@@ -104,15 +119,58 @@ var app = new Vue({
       return result;
     }
   },
-   //  FUNGSI YANG DIJALANKAN SAAT INSTANSI VUE DIBUAT
-  created: function () {
+
+   created: function () {
+    // Memanggil data stok
     const stokTersimpan = localStorage.getItem("dataStokUT");
     if (stokTersimpan) {
       this.stok = JSON.parse(stokTersimpan);
     }
+
+    // Memanggil data tracking yang tersimpan (SINKRONISASI KE HALAMAN 1)
+    const trackingTersimpan = localStorage.getItem("dataTrackingUT");
+    if (trackingTersimpan) {
+      this.tracking = JSON.parse(trackingTersimpan);
+    }
   },
   
   methods: {
+    simpanTrackingBaru() {
+      // 1. Validasi pastikan Nomor DO tidak kosong
+      if (!this.formTracking.nomorDO) {
+        alert("Nomor DO wajib diisi!");
+        return;
+      }
+
+      // 2. Format struktur data baru sesuai format objek tracking
+      const newData = {
+        nim: this.formTracking.nim,
+        nama: this.formTracking.nama,
+        status: "Ordered", // Status awal paket baru dibuat
+        ekspedisi: this.formTracking.ekspedisi,
+        tanggalKirim: this.formTracking.tanggalKirim,
+        paket: this.formTracking.paket,
+        total: this.detailPaketPilihan ? this.detailPaketPilihan.harga : 0,
+        perjalanan: [
+          { 
+            waktu: new Date().toISOString().slice(0, 19).replace('T', ' '), 
+            keterangan: "Pesanan Dibuat (Order Confirmed)" 
+          }
+        ]
+      };
+
+      // 3. Masukkan ke objek utama. Karena berbentuk Object, di Vue 2 kita gunakan this.$set
+      this.$set(this.tracking, this.formTracking.nomorDO, newData);
+
+      // 4. Simpan ke Local Storage dengan nama "dataTrackingUT"
+      localStorage.setItem("dataTrackingUT", JSON.stringify(this.tracking));
+
+      alert("Tracking Delivery Order berhasil ditambahkan!");
+
+      // 5. Kosongkan kembali form
+      this.formTracking = { nomorDO: "", ekspedisi: "", nim: "", paket: "", nama: "", tanggalKirim: "" };
+    },
+
     simpanDataStok() {
       this.stok.push({ ...this.formStok });
       localStorage.setItem("dataStokUT", JSON.stringify(this.stok));

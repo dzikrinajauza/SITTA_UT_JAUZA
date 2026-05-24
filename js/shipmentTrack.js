@@ -1,13 +1,18 @@
 function lacakPengiriman() {
   const inputNoDO = document.getElementById("inputDO").value;
   const resultDiv = document.getElementById("trackingResult");
-
-  // Cari data berdasarkan key di objek dataTracking
-  const data = dataTracking[inputNoDO];
+  // 1. Ambil data tracking yang tersimpan di Local Storage
+  const trackingTersimpan = localStorage.getItem("dataTrackingUT");
+  // 2. Jika ada data di Local Storage, ubah jadi objek. Jika tidak ada, buat objek kosong {}
+  let dataDariAdmin = trackingTersimpan ? JSON.parse(trackingTersimpan) : {};
+  // 3. Gabungkan data bawaan (dataTracking) dengan data terbaru (dataDariAdmin)
+  // Data admin diletakkan di belakang agar menjadi prioritas utama jika ada nomor DO yang sama
+  const semuaDataTracking = { ...dataTracking, ...dataDariAdmin };
+  // 4. Lakukan pencarian menggunakan gabungan data tersebut
+  const data = semuaDataTracking[inputNoDO];
 
   if (data) {
     resultDiv.classList.remove("hidden");
-
     // 1. Update Informasi Header & Tabel
     document.getElementById("res-do-number").innerText =
       `DO Number ${data.nomorDO}`;
