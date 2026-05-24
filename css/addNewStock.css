@@ -118,7 +118,9 @@ form {
 }
 
 /* Gaya Box Input Abu-abu */
-
+select {
+  padding-right: 22px;
+}
 
 .form-group input {
   background-color: #f1f5f9;

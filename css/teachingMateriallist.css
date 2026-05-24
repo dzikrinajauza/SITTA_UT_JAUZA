@@ -1,0 +1,295 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inria Serif", serif;
+}
+
+/* Main Content */
+.page-title {
+  font-family: "Inknut Antiqua", serif;
+  padding: 0 60px;
+  color: #1e2772;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* CONTAINER & KARTU TABEL */
+.table-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 0;
+  margin: 20px 60px;
+}
+
+/* TABLE HEADER */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgb(30, 39, 114) 0px -4px 22px -22px;
+    background: #F8FAFC;
+    padding: 1px 15px;
+    border-radius: 8px 8px 0px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+
+/* TABLE TITLE */
+.table-title {
+  display: flex;
+  align-items: center;
+}
+
+/* FILTER BUTTON */
+.btn-filter {
+  background: none;
+  border: none;
+  color: #f37021;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* STYLING TABEL */
+.table-responsive {
+  margin-bottom: 20px;
+    box-shadow: rgb(30, 39, 114) 0px 15px 66px -57px;
+    border-radius: 0px 0px 8px 8px;
+    padding: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-image: initial;
+}
+
+/* STOCK TABLE */
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* TABLE HEAD */
+.stock-table th {
+  background-color: #1d2a61;
+  color: #EBECEE;
+  padding: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* TABLE BODY */
+tbody td{
+  background-color: #EBECEE;
+}
+
+.stock-table td {
+  padding: 15px;
+  border-bottom: 1px solid #edeff2;
+  color: #333;
+}
+
+/* NOTES COLUMN */
+.notes-col {
+  font-size: 12px;
+  color: #666;
+}
+
+/* WARNA STATUS */
+.stock-table td.status-aman{
+  color: #22c55e; /* Warna Hijau */
+  font-weight: bold;
+}
+
+.stock-table td.status-menipis {
+  color: #eab308; /* Warna Kuning / Yellow Warning */
+  font-weight: bold;
+}
+
+.stock-table td.status-kosong {
+  color: #ef4444; /* Warna Merah Danger */
+  font-weight: bold;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+  background: none;
+  border: none;
+  color: #f37021;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* =========================================
+   ANIMASI SIDEBAR FILTER 
+   ========================================= */
+.sidebar-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+}
+
+.filter-sidebar {
+  position: fixed;
+  top: 0; right: -400px;
+  width: 350px;
+  height: 100vh;
+  background: #f1f5f9; /* Background abu-abu sangat muda khas desain */
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  z-index: 999;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inria Serif", serif; /* Menggunakan font serif untuk sidebar */
+  border-left: 1px solid #e2e8f0;
+}
+
+.filter-sidebar.open {
+  right: 0;
+}
+
+/* HEADER SIDEBAR */
+.filter-sidebar-header {
+  padding: 10px 30px 10px 30px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.btn-close-sidebar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #f37021;
+  font-size: 30px;
+}
+
+.filter-sidebar-header h2 {
+  color: #475569;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 26px;
+  margin: 0;
+}
+
+/* BODY SIDEBAR */
+.filter-sidebar-body {
+  padding: 0 30px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Sembunyikan scrollbar agar clean seperti desain */
+.filter-sidebar-body::-webkit-scrollbar {
+  width: 5px;
+}
+.filter-sidebar-body::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group h4 {
+  color: #64748b;
+  font-size: 18px;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Styling Radio Button agar mirip desain */
+.radio-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #475569;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.radio-label input[type="radio"] {
+  appearance: none;
+  background-color: transparent;
+  margin: 0 12px 0 0;
+  font: inherit;
+  color: currentColor;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #94a3b8;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.radio-label input[type="radio"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #f37021;
+}
+
+.radio-label input[type="radio"]:checked {
+  border-color: #f37021;
+}
+
+.radio-label input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+/* FOOTER SIDEBAR (Tombol) */
+.filter-sidebar-footer {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  background: transparent;
+}
+
+.btn-reset, .btn-apply {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Inria Serif", serif;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-reset {
+  background: transparent; 
+  border: 2px solid #f37021; 
+  color: #f37021; 
+}
+
+.btn-reset:hover {
+  background: #fff3ed;
+}
+
+.btn-apply {
+  background: #f37021; 
+  border: 2px solid #f37021;
+  color: white; 
+}
+
+.btn-apply:hover {
+  background: #d85c13;
+  border-color: #d85c13;
+}
