@@ -169,3 +169,29 @@ select {
 .btn-save-data:hover {
   background-color: #e46904;
 }
+
+@media (max-width: 936px) {
+  .page-title {
+    display:none;
+  }
+
+  .form-card {
+    margin: 60px 60px;
+  }
+}
+
+@media (max-width: 1381px) {
+  .page-title {
+    display:none;
+  }
+  .form-card {
+    margin: 60px 60px;
+  }
+  
+}
+
+@media (max-width: 1727px) {
+  .page-title {
+    margin: 0;
+  }
+}

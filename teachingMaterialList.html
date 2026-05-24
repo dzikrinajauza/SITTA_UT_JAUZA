@@ -65,7 +65,7 @@
             </thead>
             <!-- TABLE BODY -->
             <tbody>
-              <tr v-for="(item, index) in stok" :key="item.kode">
+              <tr v-for="(item, index) in filteredStok" :key="item.kode">
                 <td>{{ item.kode }}</td>
                 <td>{{ item.judul }}</td>
                 <td>{{ item.kategori }}</td>
@@ -81,7 +81,9 @@
                 </td>
                 <!-- EDIT -->
                 <td>
-                  <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                  <button class="btn-edit" @click="bukaModalEdit(item)">
+                    <i class="fas fa-edit"></i>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -122,20 +124,20 @@
 
           <div class="filter-group">
             <h4>Teaching Material Name</h4>
-            <label class="radio-label"><input type="radio" name="sortName" value="az"> A - Z</label>
-            <label class="radio-label"><input type="radio" name="sortName" value="za"> Z - A</label>
+            <label class="radio-label"><input type="radio" name="sortName" value="az" v-model="filterOpt.sortName"> A - Z</label>
+            <label class="radio-label"><input type="radio" name="sortName" value="za" v-model="filterOpt.sortName"> Z - A</label>
           </div>
 
           <div class="filter-group">
             <h4>Safety Stock</h4>
-            <label class="radio-label"><input type="radio" name="sortSafety" value="min"> Nilai Terkecil</label>
-            <label class="radio-label"><input type="radio" name="sortSafety" value="max"> Nilai Terbesar</label>
+            <label class="radio-label"><input type="radio" name="sortSafety" value="min" v-model="filterOpt.sortSafety"> Nilai Terkecil</label>
+            <label class="radio-label"><input type="radio" name="sortSafety" value="max" v-model="filterOpt.sortSafety"> Nilai Terbesar</label>
           </div>
 
           <div class="filter-group">
             <h4>Stock (QTY)</h4>
-            <label class="radio-label"><input type="radio" name="sortQty" value="min"> Nilai Terkecil</label>
-            <label class="radio-label"><input type="radio" name="sortQty" value="max"> Nilai Terbesar</label>
+            <label class="radio-label"><input type="radio" name="sortQty" value="min" v-model="filterOpt.sortQty"> Nilai Terkecil</label>
+            <label class="radio-label"><input type="radio" name="sortQty" value="max" v-model="filterOpt.sortQty"> Nilai Terbesar</label>
           </div>
         </div>
         
@@ -144,7 +146,57 @@
           <button class="btn-apply" @click="toggleFilter">Terapkan</button>
         </div>
       </aside>
+      <!-- MODAL EDIT -->
+      <div class="modal-overlay" v-if="isEditModalOpen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Edit Data Stok</h3>
+            <button class="btn-close-modal" @click="tutupModalEdit"><i class="fas fa-times"></i></button>
+          </div>
+          
+          <form @submit.prevent="simpanEditData" class="modal-body">
+            <div class="form-group">
+              <label>Code</label>
+              <input type="text" v-model="editForm.kode" disabled style="background-color: #e2e8f0; cursor: not-allowed;" />
+            </div>
+            
+            <div class="form-group">
+              <label>Teaching Material Name</label>
+              <input type="text" v-model="editForm.judul" required />
+            </div>
 
+            <div class="form-group">
+              <label>QTY</label>
+              <input type="number" v-model.number="editForm.qty" required />
+            </div>
+
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" v-model="editForm.lokasiRak" required />
+            </div>
+
+             <div class="form-group">
+              <label>Price</label>
+              <input type="number" v-model.number="editForm.harga" required />
+            </div>
+            
+            <div class="form-group">
+              <label>Safety Stock</label>
+              <input type="number" v-model.number="editForm.safety" required />
+            </div>
+
+            <div class="form-group">
+              <label>Notes</label>
+              <input type="text" v-model="editForm.catatanHTML" required />
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn-batal" @click="tutupModalEdit">Batal</button>
+              <button type="submit" class="btn-simpan">Simpan Perubahan</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
   </div>
 

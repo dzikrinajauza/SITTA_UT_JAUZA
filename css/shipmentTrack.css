@@ -290,9 +290,11 @@ nav a.active {
 }
 
 @media (max-width: 768px) {
-  .info-card, .progress-card, .timeline-card, .details-card {
-    margin: 10px 15px; /* Mengurangi margin kiri-kanan dari 60px menjadi 15px di HP */
-    padding: 20px;      /* Menyesuaikan padding internal */
-    border-radius: 20px; /* Menyesuaikan kebulatan border agar proporsional */
+  .bg-frame {
+   width: 100%;
+  }
+
+  .search-container {
+   padding: 40px 40px;
   }
 }

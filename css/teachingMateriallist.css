@@ -293,3 +293,144 @@ tbody td{
   background: #d85c13;
   border-color: #d85c13;
 }
+
+/* MODAL EDIT */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  width: 400px;
+  max-height: 85vh; /* Membatasi tinggi pop-up maksimal 85% dari tinggi layar */
+  display: flex; /* Mengubah display agar bisa memisahkan header dan body */
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  font-family: "Inria Serif", serif;
+}
+
+.modal-header {
+  background: #1d2a61;
+  color: white;
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 17px;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto; /* Ini adalah kunci utamanya agar bisa di-scroll ke bawah */
+}
+
+/* Mempercantik bentuk scrollbar di dalam pop-up agar ramping */
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+.modal-body .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.modal-body label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #475569;
+}
+
+.modal-body input {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.btn-batal {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-simpan {
+  background: #f37021;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 1128px) {
+  .page-title {
+    display:none
+  }
+
+  main {
+    padding: 30px;
+  }
+
+  .table-card {
+    margin: 15px; /* Kurangi margin luar agar tabel punya ruang lebih lega di layar kecil */
+    overflow: hidden; /* Mencegah elemen bocor dari kartu */
+  }
+
+  .table-responsive {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box; 
+    overflow-x: auto; /* INI KUNCI UTAMANYA: Memunculkan scroll bar horizontal */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stock-table {
+    min-width: 900px; /* Paksa tabel tetap lebar. Karena layar < 854px, tabel otomatis bisa di-scroll ke samping */
+  }
+
+  .filter-sidebar {
+    right: -100%;
+  }
+
+  .filter-sidebar.open {
+    right: 0;
+  }
+}
+

@@ -229,10 +229,63 @@ body {
 }
 
 /* Responsive Tweak untuk Layar Medium/Kecil */
+@media (max-width: 1411px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr; /* Berubah jadi 2 baris x 2 kolom di layar tablet */
+  }
+
+  .card.card-gray-large {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+
+  .card.card-gray-small {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+  
+  .dashboard-sub-nav {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
 @media (max-width: 1024px) {
   .cards-container {
     grid-template-columns: 1fr 1fr; /* Berubah jadi 2 baris x 2 kolom di layar tablet */
   }
+
+   .card.card-gray-large {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+
+  .card.card-gray-small {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+
+  .dashboard-sub-nav {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr; /* Berubah jadi 2 baris x 2 kolom di layar tablet */
+  }
+
+  .card.card-gray-large {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+
+  .card.card-gray-small {
+    display: none; /* Menyesuaikan tinggi kartu besar agar proporsional di layar kecil */
+  }
+
+  .hero-section h1 {
+    display: none; /* Menyembunyikan judul utama di layar kecil untuk menghemat ruang */
+  }
+
   .dashboard-sub-nav {
     padding: 20px;
     flex-wrap: wrap;
