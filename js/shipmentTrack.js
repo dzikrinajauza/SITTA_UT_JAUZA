@@ -1,83 +1,121 @@
+/**
+ * ========================================================================
+ * FUNGSI UTAMA: Lacak Pengiriman
+ * Digunakan untuk mencari nomor DO dan memperbarui tampilan (UI)
+ * ========================================================================
+ */
 function lacakPengiriman() {
+  // 1. Ambil inputan user dan elemen kontainer hasil
   const inputNoDO = document.getElementById("inputDO").value;
   const resultDiv = document.getElementById("trackingResult");
-  // 1. Ambil data tracking yang tersimpan di Local Storage
+
+  if (!inputNoDO) {
+    alert("Silakan masukkan Nomor DO terlebih dahulu.");
+    return;
+  }
+
+  // ========================================================================
+  // TAHAP 1: PENGAMBILAN & PENGGABUNGAN DATA
+  // ========================================================================
+  
+  // Ambil data tracking terbaru yang disimpan admin dari Local Storage
   const trackingTersimpan = localStorage.getItem("dataTrackingUT");
-  // 2. Jika ada data di Local Storage, ubah jadi objek. Jika tidak ada, buat objek kosong {}
   let dataDariAdmin = trackingTersimpan ? JSON.parse(trackingTersimpan) : {};
-  // 3. Gabungkan data bawaan (dataTracking) dengan data terbaru (dataDariAdmin)
-  // Data admin diletakkan di belakang agar menjadi prioritas utama jika ada nomor DO yang sama
+  
+  // Gabungkan data bawaan JS (dataTracking) dengan data terbaru (dataDariAdmin)
+  // Data admin diletakkan di belakang agar menimpa/memperbarui data lama jika nomor DO sama
   const semuaDataTracking = { ...dataTracking, ...dataDariAdmin };
-  // 4. Lakukan pencarian menggunakan gabungan data tersebut
+  
+  // Cari data spesifik berdasarkan input nomor DO
   const data = semuaDataTracking[inputNoDO];
 
+  // ========================================================================
+  // TAHAP 2: MEMPERBARUI TAMPILAN JIKA DATA DITEMUKAN
+  // ========================================================================
   if (data) {
-    resultDiv.classList.remove("hidden");
-    // 1. Update Informasi Header & Tabel
-    document.getElementById("res-do-number").innerText =
-      `DO Number ${data.nomorDO}`;
+    resultDiv.classList.remove("hidden"); // Munculkan kontainer hasil
+
+    // --- A. Update Informasi Dasar (Header & Tabel) ---
+    // Jika tidak ada data.nomorDO, fallback menggunakan inputNoDO
+    document.getElementById("res-do-number").innerText = `DO Number ${data.nomorDO || inputNoDO}`;
     document.getElementById("res-status-badge").innerText = data.status;
-    document.getElementById("res-placed-date").innerText =
-      `Placed on ${data.tanggalKirim}`;
+    document.getElementById("res-placed-date").innerText = `Placed on ${data.tanggalKirim}`;
+    
+    // Tabel Informasi
     document.getElementById("res-penerima").innerText = data.nama;
     document.getElementById("res-tgl-kirim").innerText = data.tanggalKirim;
     document.getElementById("res-ekspedisi").innerText = data.ekspedisi;
     document.getElementById("res-kode-paket").innerText = data.paket;
-    document.getElementById("res-total").innerText = data.total;
+    document.getElementById("res-total").innerText = typeof data.total === 'number' 
+        ? `Rp ${data.total.toLocaleString('id-ID')}` // Format uang jika angka
+        : data.total; // Biarkan jika string (data statis lama)
 
-    // 3. Render Timeline
+    // --- B. Render Timeline Perjalanan Paket ---
     const timelineList = document.getElementById("res-timeline");
-    timelineList.innerHTML = ""; // Reset
+    timelineList.innerHTML = ""; // Bersihkan list sebelumnya
 
-    data.perjalanan.forEach((item, index) => {
-      const isCurrent = index === data.perjalanan.length - 1;
-      const li = document.createElement("li");
-      li.className = "timeline-item";
+    if (data.perjalanan && data.perjalanan.length > 0) {
+      data.perjalanan.forEach((item, index) => {
+        const isCurrent = index === data.perjalanan.length - 1; // Tandai item terakhir sebagai status saat ini
+        const li = document.createElement("li");
+        li.className = "timeline-item";
 
-      // Icon tetap hijau karena ini adalah history yang sudah dilalui
-      li.innerHTML = `
-                <div class="timeline-icon"><i class="fas fa-check"></i></div>
-                <div class="timeline-content">
-                    <strong>${item.keterangan}</strong> ${isCurrent ? '<span class="badge" style="background:#ffcccc">Current</span>' : ""}
-                    <p style="font-size: 12px; color: gray; margin: 5px 0;">${item.waktu}</p>
-                </div>
-            `;
-      timelineList.appendChild(li);
-    });
+        // Buat elemen list HTML
+        li.innerHTML = `
+          <div class="timeline-icon"><i class="fas fa-check"></i></div>
+          <div class="timeline-content">
+              <strong>${item.keterangan}</strong> 
+              ${isCurrent ? '<span class="badge" style="background:#ffcccc; color:#d32f2f; margin-left: 10px;">Current</span>' : ""}
+              <p style="font-size: 12px; color: gray; margin: 5px 0;">${item.waktu}</p>
+          </div>
+        `;
+        timelineList.appendChild(li);
+      });
+    } else {
+      timelineList.innerHTML = "<p>Belum ada riwayat perjalanan.</p>";
+    }
 
-    // 3. Update Delivery Progress (Logika Icon Hijau)
+    // --- C. Update Progress Bar (Indikator Hijau) ---
     const progressBar = document.getElementById("progress-bar-width");
     const stepShipped = document.getElementById("step-shipped");
     const stepDelivered = document.getElementById("step-delivered");
-
-    // Memilih icon di dalam circle
+    
+    // Ambil ikon di dalam lingkaran
     const iconShipped = stepShipped.querySelector(".circle i");
     const iconDelivered = stepDelivered.querySelector(".circle i");
-    // Reset state awal
+    
+    // Reset kondisi tampilan ke awal (hanya order & confirmed yang aktif)
     stepShipped.classList.remove("active");
     stepDelivered.classList.remove("active");
-    iconDelivered.className = "fas fa-box"; // Default icon box
+    iconDelivered.className = "fas fa-box"; 
 
-    if (data.status === "Finished") {
-      // Kondisi Paket Sudah Diterima (Selesai)
+    // Tentukan lebar bar dan ikon berdasarkan status
+    if (data.status === "Finished" || data.status === "Delivered") {
+      // Paket Diterima
       progressBar.style.width = "100%";
       stepShipped.classList.add("active");
       stepDelivered.classList.add("active");
-      iconDelivered.className = "fas fa-check"; // Ubah jadi centang
-    } else if (data.status === "On the Way") {
-      // Kondisi Paket Masih di Kurir
+      iconDelivered.className = "fas fa-check"; 
+    } 
+    else if (data.status === "On the Way" || data.status === "Dalam Perjalanan") {
+      // Paket dalam pengiriman
       progressBar.style.width = "65%";
       stepShipped.classList.add("active");
       stepDelivered.classList.remove("active");
       iconDelivered.className = "fas fa-box";
-    } else {
-      // Jika baru tahap awal
+    } 
+    else {
+      // Tahap awal (Ordered)
       progressBar.style.width = "35%";
       stepShipped.classList.remove("active");
       stepDelivered.classList.remove("active");
     }
+
+  // ========================================================================
+  // TAHAP 3: JIKA DATA TIDAK DITEMUKAN
+  // ========================================================================
   } else {
-    alert("Nomor DO tidak ditemukan!");
-    resultDiv.classList.add("hidden");
+    alert("Nomor Delivery Order (DO) tidak ditemukan di sistem!");
+    resultDiv.classList.add("hidden"); // Sembunyikan kembali hasil
   }
 }
