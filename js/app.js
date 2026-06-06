@@ -18,17 +18,7 @@ var app = new Vue({
   },
   
   created() {
-    // 1. Ambil nama user yang login dari LocalStorage (Bawaan script login kamu)
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const userSesi = localStorage.getItem('namaUser');
-    
-    if (isLoggedIn !== 'true') {
-        window.location.href = 'login.html'; // Alihkan ke halaman login jika belum autentikasi
-    } else {
-        this.namaUser = userSesi;
-    }
-
-    // 2. Mengambil data dari dataBahanAjar.json menggunakan Fetch API (Sesuai Indikator Tugas)
+    // Mengambil data dari dataBahanAjar.json menggunakan Fetch API
     fetch('data/dataBahanAjar.json')
       .then(response => {
         if (!response.ok) {
@@ -42,10 +32,10 @@ var app = new Vue({
          this.pengirimanList = data.pengirimanList;
          this.paket = data.paket;
          
-         // Ambil dari LocalStorage jika ada modifikasi baru (CRUD), jika kosong gunakan data dasar JSON
+         // Sinkronisasi data utama
          this.stok = JSON.parse(localStorage.getItem("dataStokUT")) || data.stok;
          this.tracking = JSON.parse(localStorage.getItem("dataTrackingUT")) || data.tracking;
-         console.log("Data JSON dummy berhasil dimuat ke dalam state Vue.");
+         console.log("Data JSON dummy berhasil dimuat.");
       })
       .catch(err => console.error("Error layer service fetch:", err));
   },
