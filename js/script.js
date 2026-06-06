@@ -2,7 +2,7 @@
 const dataPengguna = [
   {
     nama: "Rina Wulandari",
-    email: "jauza@email.com",
+    email: "rina@ut.ac.id",
     password: "rina123"
   }
 ];
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Pindah ke halaman index.html utama (SPA Dashboard Vue)
                 window.location.href = 'index.html';
             } else {
-                alert('Email atau Password salah. Silakan gunakan rina@ut.ac.id atau jauza@email.com');
+                alert('Email atau Password salah. Silakan gunakan rina@ut.ac.id dan password "rina123"');
             }
         });
     }
