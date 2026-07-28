@@ -1,29 +1,36 @@
-// Menangkap elemen form
-const loginForm = document.getElementById('loginForm');
-const signupBtn = document.getElementById('signupBtn');
+// Data Pengguna Sementara untuk keperluan validasi login Tugas UT
+const dataPengguna = [
+  {
+    nama: "Rina Wulandari",
+    email: "rina@ut.ac.id",
+    password: "rina123"
+  }
+];
 
-// Logika saat form disubmit
-loginForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Mencegah halaman reload
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah reload halaman
 
-    // Mencari kecocokan data
-    const user = dataPengguna.find(u => u.email === email && u.password === password);
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-    if (user) {
-        // Simpan nama user ke localStorage (opsional, agar bisa tampil di dashboard)
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('namaUser', user.nama);
-        
-        alert(`Login Berhasil! Selamat datang, ${user.nama}`);
-        window.location.href = 'dashboard.html';
-    } else {
-        alert('Email atau Password salah. Silakan cek kembali data di data.js Anda.');
+            // Mencari kecocokan data login
+            const user = dataPengguna.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                // Set status login ke LocalStorage agar dashboard terbuka
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('namaUser', user.nama);
+                
+                alert(`Login Berhasil! Selamat datang, ${user.nama}`);
+                // Pindah ke halaman index.html utama (SPA Dashboard Vue)
+                window.location.href = 'index.html';
+            } else {
+                alert('Email atau Password salah. Silakan gunakan rina@ut.ac.id dan password "rina123"');
+            }
+        });
     }
-});
-// Logika tombol Signup
-signupBtn.addEventListener('click', function() {
-    alert('Tombol Signup diklik! Silakan buat akun baru.');
 });
