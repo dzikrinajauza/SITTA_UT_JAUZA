@@ -16,9 +16,13 @@ Website ini dibuat khusus untuk **admin/staf gudang UT**, dengan dua fungsi utam
 
 ### 🔐 Login
 
+![alt text](?raw=true)
+
 Halaman login admin dengan email & password sebelum mengakses dashboard.
 
 ### 🏠 Dashboard
+
+![alt text](?raw=true)
 
 Halaman utama setelah login, menampilkan sapaan personal ("Hello, welcome back") dan navigasi ke 4 modul utama melalui tab:
 
@@ -36,6 +40,8 @@ Serta shortcut card menuju:
    
 ### 📦 Teaching Material Stock List
 
+![alt text](?raw=true)
+
 Menampilkan tabel daftar stok bahan ajar (Kode, Nama Bahan Ajar, Kategori, Qty, Lokasi Rak, Regional UT, Harga, Safety Stock, Catatan, Status) lengkap dengan:
 1. Panel **Filter** (berdasarkan Regional, Kategori, Harga, Nama Bahan Ajar A-Z/Z-A, Safety Stock, dan Qty)
 2. Aksi Edit per baris data
@@ -43,13 +49,19 @@ Menampilkan tabel daftar stok bahan ajar (Kode, Nama Bahan Ajar, Kategori, Qty, 
    
 ### ➕ Add New Stock
 
+![alt text](?raw=true)
+
 Form untuk menambahkan data bahan ajar baru ke dalam inventori (Kode, Nama Bahan Ajar, Kategori, Qty, Lokasi Rak, Regional UT, Harga, Safety Stock, Catatan).
 
 ### 🚚 Add Tracking Delivery Order
 
+![alt text](?raw=true)
+
 Form untuk mencatat pengiriman baru (Nomor DO, Ekspedisi, NIM, Nama Mahasiswa, Paket Bahan Ajar, Tanggal Kirim), lengkap dengan rincian isi paket dan total harga otomatis. Data yang tersimpan langsung muncul di tabel **Daftar Tracking DO**.
 
 ### 📍 Shipment Tracking
+
+![alt text](?raw=true)
 
 Halaman untuk melacak status pengiriman berdasarkan nomor DO, menampilkan:
 1. Progress bar pengiriman (Ordered → Confirmed → Shipped → Delivered)
