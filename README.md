@@ -16,13 +16,14 @@ Website ini dibuat khusus untuk **admin/staf gudang UT**, dengan dua fungsi utam
 
 ### 🔐 Login
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Layout_Login.png?raw=true)
 
 Halaman login admin dengan email & password sebelum mengakses dashboard.
 
 ### 🏠 Dashboard
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Dashboard_1_Teaching%20material%20Info.png?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Dashboard_2_Tracking%20Delivery%20Info.png?raw=true)
 
 Halaman utama setelah login, menampilkan sapaan personal ("Hello, welcome back") dan navigasi ke 4 modul utama melalui tab:
 
@@ -40,7 +41,7 @@ Serta shortcut card menuju:
    
 ### 📦 Teaching Material Stock List
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Teaching%20Material%20Stock%20List.png?raw=true)
 
 Menampilkan tabel daftar stok bahan ajar (Kode, Nama Bahan Ajar, Kategori, Qty, Lokasi Rak, Regional UT, Harga, Safety Stock, Catatan, Status) lengkap dengan:
 1. Panel **Filter** (berdasarkan Regional, Kategori, Harga, Nama Bahan Ajar A-Z/Z-A, Safety Stock, dan Qty)
@@ -49,19 +50,19 @@ Menampilkan tabel daftar stok bahan ajar (Kode, Nama Bahan Ajar, Kategori, Qty, 
    
 ### ➕ Add New Stock
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Add%20New%20Stock.png?raw=true)
 
 Form untuk menambahkan data bahan ajar baru ke dalam inventori (Kode, Nama Bahan Ajar, Kategori, Qty, Lokasi Rak, Regional UT, Harga, Safety Stock, Catatan).
 
 ### 🚚 Add Tracking Delivery Order
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Add%20Tracking%20%20Delivery%20Order.png?raw=true)
 
 Form untuk mencatat pengiriman baru (Nomor DO, Ekspedisi, NIM, Nama Mahasiswa, Paket Bahan Ajar, Tanggal Kirim), lengkap dengan rincian isi paket dan total harga otomatis. Data yang tersimpan langsung muncul di tabel **Daftar Tracking DO**.
 
 ### 📍 Shipment Tracking
 
-![alt text](?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Shipment_Tracking.png?raw=true)
 
 Halaman untuk melacak status pengiriman berdasarkan nomor DO, menampilkan:
 1. Progress bar pengiriman (Ordered → Confirmed → Shipped → Delivered)
