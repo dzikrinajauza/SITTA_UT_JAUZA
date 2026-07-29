@@ -42,6 +42,7 @@ Serta shortcut card menuju:
 ### 📦 Teaching Material Stock List
 
 ![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Teaching%20Material%20Stock%20List.png?raw=true)
+![alt text](https://github.com/dzikrinajauza/sitta_ut/blob/main/prototype_web/Teaching%20Material%20Stock%20List_Navigasi%20Side%20Bar.png?raw=true)
 
 Menampilkan tabel daftar stok bahan ajar (Kode, Nama Bahan Ajar, Kategori, Qty, Lokasi Rak, Regional UT, Harga, Safety Stock, Catatan, Status) lengkap dengan:
 1. Panel **Filter** (berdasarkan Regional, Kategori, Harga, Nama Bahan Ajar A-Z/Z-A, Safety Stock, dan Qty)
