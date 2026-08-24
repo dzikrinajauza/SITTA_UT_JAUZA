@@ -91,7 +91,7 @@ Halaman untuk melacak status pengiriman berdasarkan nomor DO, menampilkan:
 
 ## 👤 Author
 
-[Dzikrina Jauza Hasna] Front-End | [dzikrinajauza@example.com] · 🔗 https://www.linkedin.com/in/dzikrinajauza/ ·
+[Dzikrina Jauza Hasna] Front-End | [dzikrinajauza@gmail.com] · 🔗 https://www.linkedin.com/in/dzikrinajauza/ ·
 
 ## 🎓 Konteks Tugas
 
